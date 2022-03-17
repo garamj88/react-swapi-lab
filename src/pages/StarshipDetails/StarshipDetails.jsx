@@ -8,14 +8,26 @@ const StarshipDetails = () => {
 
   useEffect(() => {
     getStarshipDetails(location.state.starship.url)
-    .then(starshipData => setStarshipDetails(starshipData))
+      .then(starshipData => setStarshipDetails(starshipData))
   })
 
-  return ( 
+  return (
     <>
-    <h3>NAME: {}</h3>
+      <div className='starship-card'>
+        {starshipDetails.length ?
+          <>
+            <h3>NAME: {starshipDetails.name}</h3>
+            <h3>MODEL: {starshipDetails.model}</h3>
+            <a href='/'>RETURN</a>
+          </>
+          :
+          <>
+            <h2>Loading details...</h2>
+          </>
+        }
+      </div>
     </>
-   );
+  );
 }
- 
+
 export default StarshipDetails;
