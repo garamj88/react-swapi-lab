@@ -7,35 +7,37 @@ import { Link } from 'react-router-dom'
 const StarshipList = (props) => {
   const [starshipList, setStarshipList] = useState([])
 
-  useEffect(()=> {
+  useEffect(() => {
     getAllStarships()
-    .then(starshipData => setStarshipList(starshipData.results))
+      .then(starshipData => setStarshipList(starshipData.results))
   }, [])
 
-  return ( 
+  return (
     <>
-    <h1>STAR WARS STARSHIPS</h1>
-    <div className='starship-container'>
-    {starshipList.length ? 
-      <>
-        {starshipList.map((starship) => (
-          <div key={starship.url}>
-            <Link
-              to="/starship"
-              state={{ starship }}
-            >
-              {starship.name}
-            </Link><br/>
-          </div>
-        ))}
-      </>
-      :
-      <>
-        <h2>Loading starships...</h2>
-      </>}
+      <div className='starship-container'>
+        {starshipList.length ?
+          <>
+            {starshipList.map((starship) => (
+              <div
+                key={starship.url}
+                className="starship-card">
+                <Link
+                  className="starship-name"
+                  to="/starship"
+                  state={{ starship }}
+                >
+                  {starship.name}
+                </Link>
+              </div>
+            ))}
+          </>
+          :
+          <>
+            <h2>Loading starships...</h2>
+          </>}
       </div>
     </>
-   );
+  );
 }
- 
+
 export default StarshipList;
