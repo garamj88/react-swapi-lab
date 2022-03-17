@@ -13,7 +13,8 @@ const StarshipDetails = () => {
 
   return (
     <>
-      <div className='starship-card'>
+    <div className='detail'>
+      <div className='detail-card'>
         {starshipDetails.length ?
           <>
             <h3>NAME: {starshipDetails.name}</h3>
@@ -25,6 +26,7 @@ const StarshipDetails = () => {
             <h2>Loading details...</h2>
           </>
         }
+      </div>
       </div>
     </>
   );
