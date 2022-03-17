@@ -31,7 +31,7 @@ const StarshipList = (props) => {
               </div>
             ))}
           </>
-          :gi
+          :
           <>
             <h2>Loading starships...</h2>
           </>}
